@@ -1,0 +1,60 @@
+﻿@model IEnumerable<features.Models.Feeedback>
+
+@{
+    ViewBag.Title = "Recentfeedbaks";
+}
+
+<h2>Recentfeedbaks</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.feedback)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timestamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.feedback)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.feedbackId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.feedbackId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.feedbackId })
+        </td>
+    </tr>
+}
+
+</table>

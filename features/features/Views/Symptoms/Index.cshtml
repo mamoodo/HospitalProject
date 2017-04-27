@@ -1,0 +1,51 @@
+﻿@model IEnumerable<features.Models.Symptom>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script>
+    $(document).ready(function () {
+        $("#symptoms__title").css({ "font-size": "24px", "color": "#0D467D", "font-weight": "bold", "margin-bottom": "60px", "border-bottom": "1px solid #0D467D" });
+        
+    });
+</script>
+
+<div class="container" style="margin-top: 200px;">
+<h1 id="symptoms__title">Symptoms Page</h1>
+<p class="button">
+    @Html.ActionLink("Add Symptom", "Create")
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.symptName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.dptName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.symptName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.dptName)
+            </td>
+        <td class="crud">
+            @Html.ActionLink("Edit", "Edit", new { id = item.symptomsId }, htmlAttributes: new { @class = "button-edit" })
+        </td>
+        <td class="crud">
+            @Html.ActionLink("Delete", "Delete", new { id = item.symptomsId }, htmlAttributes: new { @class = "button-delete" })
+            </td>
+        </tr>
+    }
+
+</table>
+</div>

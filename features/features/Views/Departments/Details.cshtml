@@ -1,0 +1,42 @@
+﻿@model features.Models.Department
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dptName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dptDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dptDesc)
+        </dd>
+
+    </dl>
+    
+    <h2>Symptoms Treated</h2>
+    <ul>
+    @foreach (var item in Model.Symptoms)
+    {
+        <li>@item.symptName</li>
+    }
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.departmentsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

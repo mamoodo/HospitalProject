@@ -1,0 +1,52 @@
+﻿@model IEnumerable<features.Models.Department>
+
+@{
+    ViewBag.Title = "AllDepartments";
+}
+
+@*
+    Project: Temiskaming Hospital Website
+    Team Name: PetaByte
+    Class: Mobile Development
+    Professor: Lee Situ
+    Author: Mahmud Al-Mohammad Amin
+    File Description: This file is the view is to display all of the departments.
+    Note: Views do not have many comments, they were mostly edited within small details.
+*@
+
+@*jQuery for styling*@
+@*******************s*@
+<script>
+        $(document).ready(function () {
+            $("#dept__name").css("font-size", "18px");
+        });
+    </script>
+
+<div class="container" style="margin-top: 150px; margin-bottom: 100px;">
+<h2>All Departments</h2>
+
+<table class="table" style="max-width: 300px;" id="dept__name">
+@*    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dptName)
+        </th>
+    </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr >
+            <td >
+                <a href="/Home/DeptDetails/?id=@item.departmentsId"> @Html.DisplayFor(modelItem => item.dptName)</a>
+                @*@Html.ActionLink(@Html.DisplayFor(modelItem => item.dptName).ToString(), "Details", new {id = item.departmentsId})*@
+            </td>
+@*            <td class="crud">
+                @Html.ActionLink("Edit", "Edit", new { id = item.departmentsId }, htmlAttributes: new { @class = "button-edit" })
+            </td>
+            <td class="crud">
+                @Html.ActionLink("Delete", "Delete", new { id = item.departmentsId }, htmlAttributes: new { @class = "button-delete" })
+            </td>*@
+        </tr>
+    }
+
+</table>
+</div>

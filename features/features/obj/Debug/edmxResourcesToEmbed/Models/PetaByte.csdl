@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetaByteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Feeedback">
+    <Key>
+      <PropertyRef Name="feedbackId" />
+    </Key>
+    <Property Name="feedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+    <Property Name="feedback" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Symptom">
+    <Key>
+      <PropertyRef Name="symptomsId" />
+    </Key>
+    <Property Name="symptomsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="symptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="deptId" Type="Int32" />
+    <NavigationProperty Name="Department" Relationship="PetaByteModel.FK_Departments_ToTable" FromRole="Symptom" ToRole="Department" />
+  </EntityType>
+  <EntityContainer Name="PetaByteContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Feeedbacks" EntityType="Self.Feeedback" />
+    <EntitySet Name="Symptoms" EntityType="Self.Symptom" />
+    <EntitySet Name="Departments" EntityType="PetaByteModel.Department" />
+    <AssociationSet Name="FK_Departments_ToTable" Association="PetaByteModel.FK_Departments_ToTable">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Symptom" EntitySet="Symptoms" />
+    </AssociationSet>
+    <EntitySet Name="HospitalEvents" EntityType="PetaByteModel.HospitalEvent" />
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="departmentsId" />
+    </Key>
+    <Property Name="departmentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dptName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dptDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Symptoms" Relationship="PetaByteModel.FK_Departments_ToTable" FromRole="Department" ToRole="Symptom" />
+  </EntityType>
+  <Association Name="FK_Departments_ToTable">
+    <End Type="PetaByteModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="PetaByteModel.Symptom" Role="Symptom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="departmentsId" />
+      </Principal>
+      <Dependent Role="Symptom">
+        <PropertyRef Name="deptId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HospitalEvent">
+    <Key>
+      <PropertyRef Name="eventsId" />
+    </Key>
+    <Property Name="eventsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="evntName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="evntDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="evntTimebg" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="evntTimefn" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="evntDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="evntLoc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

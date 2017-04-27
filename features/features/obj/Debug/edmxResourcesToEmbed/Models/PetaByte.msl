@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PetaByteModelStoreContainer" CdmEntityContainer="PetaByteContext">
+    <EntitySetMapping Name="Feeedbacks">
+      <EntityTypeMapping TypeName="PetaByteModel.Feeedback">
+        <MappingFragment StoreEntitySet="Feeedbacks">
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="feedbackId" ColumnName="feedbackId" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Symptoms">
+      <EntityTypeMapping TypeName="PetaByteModel.Symptom">
+        <MappingFragment StoreEntitySet="Symptoms">
+          <ScalarProperty Name="deptId" ColumnName="deptId" />
+          <ScalarProperty Name="symptomsId" ColumnName="symptomsId" />
+          <ScalarProperty Name="symptName" ColumnName="symptName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="PetaByteModel.Department">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="dptDesc" ColumnName="dptDesc" />
+          <ScalarProperty Name="dptName" ColumnName="dptName" />
+          <ScalarProperty Name="departmentsId" ColumnName="departmentsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HospitalEvents">
+      <EntityTypeMapping TypeName="PetaByteModel.HospitalEvent">
+        <MappingFragment StoreEntitySet="HospitalEvents">
+          <ScalarProperty Name="evntLoc" ColumnName="evntLoc" />
+          <ScalarProperty Name="evntDesc" ColumnName="evntDesc" />
+          <ScalarProperty Name="evntTimefn" ColumnName="evntTimefn" />
+          <ScalarProperty Name="evntTimebg" ColumnName="evntTimebg" />
+          <ScalarProperty Name="evntDate" ColumnName="evntDate" />
+          <ScalarProperty Name="evntName" ColumnName="evntName" />
+          <ScalarProperty Name="eventsId" ColumnName="eventsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

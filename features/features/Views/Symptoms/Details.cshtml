@@ -1,0 +1,35 @@
+﻿@model features.Models.Symptom
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Symptom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.symptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.symptName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.dptName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.dptName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.symptomsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

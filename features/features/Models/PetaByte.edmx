@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PetaByteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="departmentsId" />
+          </Key>
+          <Property Name="departmentsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dptName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dptDesc" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feeedbacks">
+          <Key>
+            <PropertyRef Name="feedbackId" />
+          </Key>
+          <Property Name="feedbackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="subject" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="feedback" Type="varchar(max)" Nullable="false" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HospitalEvents">
+          <Key>
+            <PropertyRef Name="eventsId" />
+          </Key>
+          <Property Name="eventsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="evntName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="evntDate" Type="date" Nullable="false" />
+          <Property Name="evntTimebg" Type="time" Precision="7" Nullable="false" />
+          <Property Name="evntTimefn" Type="time" Precision="7" Nullable="false" />
+          <Property Name="evntDesc" Type="text" Nullable="false" />
+          <Property Name="evntLoc" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Symptoms">
+          <Key>
+            <PropertyRef Name="symptomsId" />
+          </Key>
+          <Property Name="symptomsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="symptName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="deptId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Departments_ToTable">
+          <End Role="Departments" Type="Self.Departments" Multiplicity="0..1" />
+          <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departments">
+              <PropertyRef Name="departmentsId" />
+            </Principal>
+            <Dependent Role="Symptoms">
+              <PropertyRef Name="deptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PetaByteModelStoreContainer">
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feeedbacks" EntityType="Self.Feeedbacks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HospitalEvents" EntityType="Self.HospitalEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Departments_ToTable" Association="Self.FK_Departments_ToTable">
+            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Symptoms" EntitySet="Symptoms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PetaByteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Feeedback">
+          <Key>
+            <PropertyRef Name="feedbackId" />
+          </Key>
+          <Property Name="feedbackId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <Property Name="feedback" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Symptom">
+          <Key>
+            <PropertyRef Name="symptomsId" />
+          </Key>
+          <Property Name="symptomsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="symptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="deptId" Type="Int32" />
+          <NavigationProperty Name="Department" Relationship="PetaByteModel.FK_Departments_ToTable" FromRole="Symptom" ToRole="Department" />
+        </EntityType>
+        <EntityContainer Name="PetaByteContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Feeedbacks" EntityType="Self.Feeedback" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptom" />
+          <EntitySet Name="Departments" EntityType="PetaByteModel.Department" />
+          <AssociationSet Name="FK_Departments_ToTable" Association="PetaByteModel.FK_Departments_ToTable">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Symptom" EntitySet="Symptoms" />
+          </AssociationSet>
+          <EntitySet Name="HospitalEvents" EntityType="PetaByteModel.HospitalEvent" />
+        </EntityContainer>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="departmentsId" />
+          </Key>
+          <Property Name="departmentsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dptName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dptDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Symptoms" Relationship="PetaByteModel.FK_Departments_ToTable" FromRole="Department" ToRole="Symptom" />
+        </EntityType>
+        <Association Name="FK_Departments_ToTable">
+          <End Type="PetaByteModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="PetaByteModel.Symptom" Role="Symptom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="departmentsId" />
+            </Principal>
+            <Dependent Role="Symptom">
+              <PropertyRef Name="deptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="HospitalEvent">
+          <Key>
+            <PropertyRef Name="eventsId" />
+          </Key>
+          <Property Name="eventsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="evntName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="evntDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="evntTimebg" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="evntTimefn" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="evntDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="evntLoc" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PetaByteModelStoreContainer" CdmEntityContainer="PetaByteContext">
+          <EntitySetMapping Name="Feeedbacks">
+            <EntityTypeMapping TypeName="PetaByteModel.Feeedback">
+              <MappingFragment StoreEntitySet="Feeedbacks">
+                <ScalarProperty Name="feedback" ColumnName="feedback" />
+                <ScalarProperty Name="feedbackId" ColumnName="feedbackId" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Symptoms">
+            <EntityTypeMapping TypeName="PetaByteModel.Symptom">
+              <MappingFragment StoreEntitySet="Symptoms">
+                <ScalarProperty Name="deptId" ColumnName="deptId" />
+                <ScalarProperty Name="symptomsId" ColumnName="symptomsId" />
+                <ScalarProperty Name="symptName" ColumnName="symptName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="PetaByteModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="dptDesc" ColumnName="dptDesc" />
+                <ScalarProperty Name="dptName" ColumnName="dptName" />
+                <ScalarProperty Name="departmentsId" ColumnName="departmentsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HospitalEvents">
+            <EntityTypeMapping TypeName="PetaByteModel.HospitalEvent">
+              <MappingFragment StoreEntitySet="HospitalEvents">
+                <ScalarProperty Name="evntLoc" ColumnName="evntLoc" />
+                <ScalarProperty Name="evntDesc" ColumnName="evntDesc" />
+                <ScalarProperty Name="evntTimefn" ColumnName="evntTimefn" />
+                <ScalarProperty Name="evntTimebg" ColumnName="evntTimebg" />
+                <ScalarProperty Name="evntDate" ColumnName="evntDate" />
+                <ScalarProperty Name="evntName" ColumnName="evntName" />
+                <ScalarProperty Name="eventsId" ColumnName="eventsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

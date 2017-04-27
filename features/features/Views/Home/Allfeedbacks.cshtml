@@ -1,0 +1,241 @@
+﻿
+@model IEnumerable<features.Models.Feeedback>
+
+
+@{
+    ViewBag.Title = "Allfeedbacks";
+}
+
+@*
+    Project: Temiskaming Hospital Website
+    Team Name: PetaByte
+    Class: Mobile Development
+    Professor: Lee Situ
+    Author: Mahmud Al-Mohammad Amin
+    File Description: This file is the view for all of the feedbacks, recent, also creating a feedback 
+    Note: Views do not have many comments, they were mostly edited within small details.
+*@
+
+
+@*jQuery for styling*@
+@********************@
+<script>
+    $(document).ready(function () {
+        $('#horizontalTab').responsiveTabs({
+
+            startCollapsed: 'accordion', // Start with the panels collapsed if the view is currently accordion based
+            collapsible: true, // Tabs can be collapsed
+            rotate: false, // Tabs auto rotate
+/*            event: 'click',
+            setHash: false,*/
+            /*animation: 'default'*/
+        });
+        $("#hidea").css("display", "none");
+    });
+</script>
+
+
+<div class="container" style="margin-top: 200px; margin-bottom: 50px;">
+    
+@*    @Ajax.ActionLink("Add new", "Addfeedbacks", new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = "add",
+        InsertionMode = InsertionMode.Replace
+    })*@
+    <div id="add"></div>
+    
+     @**@
+    <div id="horizontalTab">
+        <ul>
+            <li class="tab_Li"><a href="#tab-1">Earlier feedbacks</a></li>
+            <li class="tab_Li"><a href="#tab-2">Recent 3</a></li>
+            <li class="tab_Li">
+                
+
+                @*--Ajax call to populate the third tab with a partial view of Addfeedbacks*@
+                @***************************************************************************@
+                <a href="#tab-3" id="hidea"></a>@Ajax.ActionLink("Add new", "Addfeedbacks", new AjaxOptions()
+                                           {
+                                               HttpMethod = "GET",
+                                               UpdateTargetId = "tab-3",
+                                               InsertionMode = InsertionMode.Replace
+                                           })
+            </li>
+
+        </ul>
+
+
+        
+        <div id="tab-1">
+            <div class="container-fluid">
+                <table class="table" style="max-width: 700px; border-bottom: 2px solid #0D467D;">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.firstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.lastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.subject)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.timestamp)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.feedback)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.firstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.lastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.subject)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.timestamp)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.feedback)
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+        
+            <div id="tab-2">
+                <div class="container-fluid">
+                    <table class="table" style="max-width: 700px; border-bottom: 2px solid #0D467D;">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.firstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.lastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.subject)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.timestamp)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.feedback)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model.OrderByDescending(f => f.timestamp).Take(3))
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.firstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.lastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.subject)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.timestamp)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.feedback)
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+        </div>
+            <div id="tab-3"></div>
+    </div>
+
+    @Html.ActionLink("Back to Homepage", "Index", null, new { @class= "btn btn-primary footer__login-btn" })
+    
+
+</div>
+
+
+
+
+
+        @*    <h2 style="color: black;">All Feedbacks</h2>
+    <p class="pull-right">
+        @Html.ActionLink("Leave a feedback", "Addfeedback")
+    </p>
+    <table class="table" style="max-width: 800px; border-bottom: 3px solid black;">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.firstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timestamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.feedback)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.firstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.timestamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.feedback)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>*@
+    @*</div>*@
+@*</div>*@

@@ -1,0 +1,78 @@
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\csc.exe
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\System.Collections.Immutable.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\vbc.exe
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\VBCSCompiler.exe
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\roslyn\VBCSCompiler.exe.config
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\features.dll.config
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\features.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\features.pdb
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\EntityFramework.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\EntityFramework.SqlServer.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\Microsoft.Web.Infrastructure.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Helpers.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Mvc.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Razor.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.Deployment.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.Razor.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\EntityFramework.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\EntityFramework.SqlServer.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Razor.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.Deployment.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Webpages.Razor.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Helpers.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\System.Web.Mvc.xml
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\obj\Debug\features.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\obj\Debug\features.pdb
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\DHTMLX.dll
+c:\users\ifneeded\documents\visual studio 2015\Projects\features\features\bin\DHTMLX.xml
+C:\Users\IFneeded\Documents\Visual Studio 2015\Projects\features\features\obj\Debug\features.csprojResolveAssemblyReference.cache
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\csc.exe
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\vbc.exe
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\VBCSCompiler.exe
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\features.dll.config
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\features.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\features.pdb
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\DHTMLX.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\EntityFramework.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\EntityFramework.SqlServer.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Helpers.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Mvc.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Razor.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.Deployment.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.Razor.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\DHTMLX.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\EntityFramework.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\EntityFramework.SqlServer.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Razor.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.Deployment.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Webpages.Razor.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Helpers.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\bin\System.Web.Mvc.xml
+C:\Users\IFneeded\Desktop\New folder\features\features\obj\Debug\features.csprojResolveAssemblyReference.cache
+C:\Users\IFneeded\Desktop\New folder\features\features\obj\Debug\features.dll
+C:\Users\IFneeded\Desktop\New folder\features\features\obj\Debug\features.pdb
